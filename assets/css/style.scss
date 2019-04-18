@@ -1,0 +1,28 @@
+@import "{{ site.theme }}";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$f-lato: 'Lato', sans-serif;
+
+* {
+  font-family: $f-lato;
+}
+
+h1 {
+  text-decoration: underline;
+  color: pink;
+}
+
+p {
+  line-height: 2em;
+  font-size: 11px;
+}
+
+button {
+  padding: 15px 20px;
+  border: 1px solid green;
+  font-family: $f-lato;
+  color: blue;
+  &:hover{
+    color: red;
+  }
+}
