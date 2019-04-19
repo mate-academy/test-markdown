@@ -46,7 +46,28 @@
       console.log(y);
     });
     ```
-
+    
+### Callbacks inner
+ - if I add `return 123;` to `test` output?
+ - how to change `test` so `print` puts 123 in the console?
+ - Callback - is a function given as a parameter to another function
+ - output?
+    ```javascript
+    test(function(y) {
+      console.log(y);
+    });
+    ```
+    
+### Callbacks inner
+ - if I add `return 123;` to `test` output?
+ - how to change `test` so `print` puts 123 in the console?
+ - Callback - is a function given as a parameter to another function
+ - output?
+    ```javascript
+    test(function(y) {
+      console.log(y);
+    });
+    ```   
 
 ## Methods
 
@@ -141,4 +162,3 @@
     )
     ```
 
-<script type="text/javascript" src="assets/js/main.js"></script>
