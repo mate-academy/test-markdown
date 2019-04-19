@@ -19,7 +19,7 @@ $ease-in: cubic-bezier(.75,0,.25,1);
 $ease-out: cubic-bezier(.165,.84,.44,1);
 
 // elements
-$headings: h1, h2, h3, h4, h5, h6;
+$headings: h2, h3, h4, h5, h6;
 
 html, body {
   margin: 0;
@@ -29,22 +29,24 @@ html, body {
 .markdown-body {
   color: $c-main;
   font-family: $f-sans-serif;
-  font-size: 14px;
-  
+
   > h1:first-child {
     display: none
   }
   
   #{$headings} {
-    position: relative;
-    transition: color $duration $easing;
-    border-bottom: none;
-    &:hover {
-      color: $c-accent;
+    .text {
+      transition: color $duration $easing;
+      &:hover {
+        color: $c-accent;
+      }
     }
     .anchorjs-link {
       transition: opacity $duration $easing;
       text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
   a {
