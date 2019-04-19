@@ -64,4 +64,21 @@ html, body {
   }
 }
 
+.ma-dropdown {
+  &__trigger {
+    transition: color $duration $easing;
+  }
+  &__content {
+    display: none;
+  }
+  &.is-active {
+    .ma-dropdown__trigger {
+      color: $c-accent;
+    }
+    .ma-dropdown__content {
+      display: block;
+    }
+  }
+}
+
 

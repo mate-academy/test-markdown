@@ -3,18 +3,18 @@ const wrap = (el, wrapper) => {
     wrapper.appendChild(el);
 }
 
-const addEvents = (trigger, content) => {
+const addEvents = (wrapper, trigger) => {
     trigger.addEventListener('click', (e) => {
         if (e.target.closest('.anchorjs-link ')) {
             return;
         }
-        content.classList.toggle('is-active');
+        wrapper.classList.toggle('is-active');
     })
     document.addEventListener('click', (e) => {
-        if (trigger.contains(e.target) || content.contains(e.target)) {
+        if (wrapper.contains(e.target)) {
             return;
         }
-        content.classList.remove('is-active');
+        wrapper.classList.remove('is-active');
     })
 }
 
@@ -36,7 +36,7 @@ const createDropdown = (trigger, content) => {
     triggerNode.append(trigger);
     contentNode.append(...content);
 
-    addEvents(triggerNode, contentNode);
+    addEvents(wrapper, triggerNode);
 
     content.length = 0;
 }
