@@ -10,6 +10,7 @@ $f-sans-serif: Arial, Helvetica, sans-serif;
 $c-main: #252544;
 $c-accent: #e85754;
 $c-gray-light: #fcfafa;
+$c-gray: ##9393a7;
 
 // transition
 $duration: 0.35s;
@@ -51,6 +52,12 @@ html, body {
   font-size: 14px;
   a {
     color: #308dc0;
+  }
+  hr {
+    height: 2px;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, $c-gray, $c-gray 75%, transparent 75%, transparent 100%);
+    background-size: 20px 1px;
   }
 }
 
