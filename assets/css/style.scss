@@ -75,6 +75,7 @@ html, body {
       &:focus {
         color: $c-main;
         opacity: 1;
+        outline: none;
       }
       &::-webkit-details-marker {
         display: none;  
