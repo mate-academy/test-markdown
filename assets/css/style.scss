@@ -35,6 +35,8 @@ html, body {
       color: $c-accent;
     }
     .anchorjs-link {
+      transition: opacity $duration $easing;
+      text-decoration: none;
       &::before{
         position: absolute;
         top: 0;
