@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>fe-program</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="fe-program" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://mate-academy.github.io/fe-program/js/lesson-04_functions-callbacks-methods/instructions.html" />
+    <meta property="og:url" content="https://mate-academy.github.io/fe-program/js/lesson-04_functions-callbacks-methods/instructions.html" />
+    <meta property="og:site_name" content="fe-program" />
+    <script type="application/ld+json">
+        {"@type":"WebPage","url":"https://mate-academy.github.io/fe-program/js/lesson-04_functions-callbacks-methods/instructions.html","headline":"fe-program","@context":"http://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+<!--    <link rel="stylesheet" href="/fe-program/assets/css/style.css?v=fb06e46e3c44fae5de633100a72848822cbaf727">-->
+</head>
+<body>
+<div class="container-lg px-3 my-5 markdown-body">
+
+    <h1><a href="https://mate-academy.github.io/fe-program/">fe-program</a></h1>
+
+
+    <p><a alt="feedback" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe0pD5cZW3_vdXUX3zt0HjyNxU0rABNb45XLXty3rAozL6Ryg/viewform?usp=pp_url&amp;entry.1329444951=Functions,+callbacks,+methods+(instructions)">
+        Send feedback
+    </a></p>
+
+    <h1 id="functions-callbacks-methods-calculated-props">Functions, callbacks, methods, calculated props</h1>
+
+    <h2 id="functions">Functions</h2>
+
+    <ul>
+        <li><code class="highlighter-rouge">let user = {}; user();</code> output?</li>
+        <li>is an object with internal <code class="highlighter-rouge">[[code]]</code> property - just a text (<code class="highlighter-rouge">log(PI)</code> but not <code class="highlighter-rouge">log(3.14)</code>)
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+
+ <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">PI</span><span class="p">);</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+        </li>
+        <li>You can add <code class="highlighter-rouge">()</code> to any expression (variable, literal, …)</li>
+        <li><code class="highlighter-rouge">[]</code> or <code class="highlighter-rouge">.</code> also can be added to any expr</li>
+        <li>Will it work <code class="highlighter-rouge">(f)()</code>?</li>
+        <li><code class="highlighter-rouge">(1 &amp;&amp; f)()</code> output?</li>
+        <li><code class="highlighter-rouge">(function(){ console.log(123) })()</code> output?</li>
+        <li>A function accepts arguments (params) and returns a value <code class="highlighter-rouge">f(a, b) { console.log(a, b) }</code>
+            <ul>
+                <li>extra arguments <code class="highlighter-rouge">f(1, 2, 3, 4)</code>. Output?</li>
+                <li>Lack of arguments <code class="highlighter-rouge">f()</code>. Output?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2 id="callbacks">Callbacks</h2>
+
+    <ul>
+        <li><code class="highlighter-rouge">test(print)</code> output?
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">f</span><span class="p">();</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+        </li>
+        <li>if I add <code class="highlighter-rouge">return 123;</code> to <code class="highlighter-rouge">test</code> output?</li>
+        <li>how to change <code class="highlighter-rouge">test</code> so <code class="highlighter-rouge">print</code> puts 123 in the console?</li>
+        <li>Callback - is a function given as a parameter to another function</li>
+        <li>output?
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">test</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+ <span class="p">});</span>
+</code></pre></div>    </div>
+        </li>
+    </ul>
+
+    <h2 id="methods">Methods</h2>
+
+    <ul>
+        <li>Method is a prop containing a link to a function at the moment</li>
+        <li><code class="highlighter-rouge">method() { ... }</code> instead of <code class="highlighter-rouge">method: function() {}</code></li>
+        <li>output?
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">firstName</span><span class="p">:</span> <span class="s1">'Misha'</span><span class="p">,</span>
+   <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Hrynko'</span><span class="p">,</span>
+
+   <span class="na">fullName</span><span class="p">:</span> <span class="s1">'Misha Hrynko'</span><span class="p">,</span> <span class="c1">// (1)</span>
+ <span class="p">};</span>
+
+ <span class="nx">user</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="s1">'Petya'</span><span class="p">;</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+   <span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span> <span class="c1">// (2)</span>
+ <span class="p">);</span>
+</code></pre></div>    </div>
+        </li>
+        <li>What to change in (1) and (2) to see actual values</li>
+        <li>if I change <code class="highlighter-rouge">fullName: user.firsName + user.lastName</code> output?
+            <ul>
+                <li><code class="highlighter-rouge">user</code> variable is not available in right side of <code class="highlighter-rouge">=</code></li>
+            </ul>
+        </li>
+        <li><code class="highlighter-rouge">fullName: function() { return user.firstName + ' ' + user.lastName; }</code></li>
+        <li>what’s the correct name for the method?</li>
+        <li>You can use <code class="highlighter-rouge">this</code> in the method
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">getFullName</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+   <span class="nx">user</span><span class="p">.</span><span class="nx">getFullName</span><span class="p">()</span>
+ <span class="p">);</span>
+</code></pre></div>    </div>
+        </li>
+    </ul>
+
+    <h2 id="calculated-properties">Calculated properties</h2>
+
+    <ul>
+        <li><code class="highlighter-rouge">get fullName() { }</code></li>
+        <li>Output?
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s1">'Misha Grinko'</span><span class="p">;</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span><span class="p">);</span>
+</code></pre></div>    </div>
+        </li>
+        <li>how to fix prev example?</li>
+        <li><code class="highlighter-rouge">set lastName(value) {}</code> - show how to control the changes
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+
+   <span class="kd">set</span> <span class="nx">fullName</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">!==</span> <span class="s1">'string'</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">return</span><span class="p">;</span>
+     <span class="p">}</span>
+
+     <span class="kd">let</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">);</span>
+
+     <span class="k">if</span> <span class="p">(</span><span class="nx">parts</span><span class="p">.</span><span class="nx">length</span> <span class="o">!==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">return</span><span class="p">;</span>
+     <span class="p">}</span>
+
+     <span class="k">if</span> <span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+     <span class="p">}</span>
+   <span class="p">},</span>
+ <span class="p">};</span>
+
+ <span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s1">'John Smith'</span><span class="p">;</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span><span class="p">);</span>
+</code></pre></div>    </div>
+        </li>
+        <li>Just to ensure! Output?
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">firstName</span><span class="p">:</span> <span class="s1">'Misha'</span><span class="p">,</span>
+   <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Hrynko'</span><span class="p">,</span>
+
+   <span class="kd">get</span> <span class="nx">fullName</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+   <span class="p">},</span>
+
+   <span class="kd">set</span> <span class="nx">fullName</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span> <span class="c1">// we change only lastName </span>
+   <span class="p">},</span>
+ <span class="p">};</span>
+
+ <span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s1">'Petya Ivanov'</span><span class="p">;</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+   <span class="nx">user</span><span class="p">.</span><span class="nx">fullName</span> <span class="c1">// (???)</span>
+ <span class="p">)</span>
+</code></pre></div>    </div>
+        </li>
+    </ul>
+
+
+
+</div>
+<script src="../assets/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+<script>anchors.add();</script>
+
+</body>
+</html>
