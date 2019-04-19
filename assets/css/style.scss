@@ -45,46 +45,20 @@ html, body {
     .anchorjs-link {
       transition: opacity $duration $easing;
       text-decoration: none;
-      &::before{
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        content: '';
-      }
     }
   }
   a {
     color: #308dc0;
   }
-  hr {
-    height: 1px;
-    background-color: transparent;
-    background-image: linear-gradient(90deg, $c-gray, $c-gray 75%, transparent 75%, transparent 100%);
-    background-size: 20px 1px;
-  }
-  details {
-    summary {
-      color: $c-main;
-      font-weight: 500;
-      list-style-image: unset;
-      cursor: pointer;
-      opacity: 0.5;
-      transition: opacity $duration $easing;
-      border-bottom: 1px dashed $c-main;
-      display: inline-block;
-      &:hover {
-        opacity: 1;
-      }
-      &:focus,
-      &:active {
-        outline: none;
-      }
-      &::-webkit-details-marker {
-        display: none;  
-      }
-    }
+  a[alt="feedback"] {
+    color: white;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
   }
 }
 
