@@ -71,10 +71,12 @@ html, body {
       cursor: pointer;
       opacity: 0.5;
       transition: opacity $duration $easing;
-      &:hover,
-      &:focus {
-        color: $c-main;
+      border-bottom: 1px dashed $c-main;
+      &:hover {
         opacity: 1;
+      }
+      &:focus,
+      &:active {
         outline: none;
       }
       &::-webkit-details-marker {
