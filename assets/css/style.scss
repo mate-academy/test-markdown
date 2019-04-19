@@ -38,6 +38,7 @@ html, body {
   #{$headings} {
     position: relative;
     transition: color $duration $easing;
+    border-bottom: none;
     &:hover {
       color: $c-accent;
     }
