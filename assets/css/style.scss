@@ -3,13 +3,19 @@
 
 @import "{{ site.theme }}";
 
+$f-sans-serif: font-family: Arial, Helvetica, sans-serif;
+
 html, body {
   margin: 0;
   background: #f9f9f9;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
 }
 
-a {
-  color: #308dc0;
+.markdown-body {
+  font-family: $f-sans-serif;
+  font-size: 14px;
+  a {
+    color: #308dc0;
+  }
 }
+
+
