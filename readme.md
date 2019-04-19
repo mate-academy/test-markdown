@@ -1,6 +1,7 @@
-  ## JavaScript basics
   
-  test custom styles and scripts in markdown
+## JavaScript basics
+  
+test custom styles and scripts in markdown
   
 ---
 
