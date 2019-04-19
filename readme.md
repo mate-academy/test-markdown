@@ -5,14 +5,14 @@ test custom styles and scripts in markdown
   
 ---
 
---
-
-<button>Say hi!</button>
-
 <details>
-  <summary>Collapsible element</summary>
-  <p>Some content</p>
-  <p>Another content</p>
+  <summary>Concepts</summary>
+  <div class="details-content>
+    <ul>
+      <li><a href="http://javascript.info/intro">An introduction to JavaScript</a></li>
+      <li><a href="http://javascript.info/code-editors">Code editors</a></li>
+    </ul>
+  </div>
 </details>
 
 <script type="text/javascript" src="assets/js/main.js"></script>
