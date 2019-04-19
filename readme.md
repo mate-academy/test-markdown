@@ -1,9 +1,8 @@
-<div class="content-block">
   ## JavaScript basics
   
   test custom styles and scripts in markdown
-</div>
-
+  
+---
 
 <button>Say hi!</button>
 
