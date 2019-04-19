@@ -65,9 +65,17 @@ html, body {
   }
   details {
     summary {
-      color: $c-gray;
+      color: $c-main;
       font-weight: 500;
       list-style-image: unset;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity $duration $easing;
+      &:hover,
+      &:focus {
+        color: $c-main;
+        opacity: 1;
+      }
       &::-webkit-details-marker {
         display: none;  
       }
