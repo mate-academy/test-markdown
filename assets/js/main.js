@@ -19,6 +19,7 @@ const addEvents = (wrapper, trigger) => {
 }
 
 const createDropdown = (trigger, content) => {
+    console.log(trigger)
     const name = 'ma-dropdown';
 
     const wrapper = document.createElement('div');
@@ -39,32 +40,53 @@ const createDropdown = (trigger, content) => {
     addEvents(wrapper, triggerNode);
 
     content.length = 0;
+
+    return wrapper;
 }
 
-const parseContent = (elements) => {
-    const stack = [];
+const parseContent = (elements, level = 2, index = 0) => {
+    let heading = null;
     const content = [];
+    const dropdowns = [];
 
-    elements.forEach(element => {
-        const {tagName} = element;
-        const lastElement = stack[stack.length - 1];
-
+    for (let i = index; i < elements.length; i += 1) {
+        const currentElement = elements[i];
+        const {tagName} = currentElement;
         if (/H[2-6]/.test(tagName)) {
-            if (lastElement && tagName === lastElement.tagName) {
-                createDropdown(stack.pop(), content);
+            if (!heading) {
+                heading = currentElement;
+                continue;
             }
-            stack.push(element);
+            const currentLevel = parseInt(
+                tagName.replace(/[^\d.]/g, ''),
+                10);
+            if (currentLevel > level) {
+                const {items, newIndex} = parseContent(elements, currentLevel, i);
+                content.push(...items);
+                i = newIndex;
+            }
+            if (currentLevel < level) {
+                dropdowns.push(createDropdown(heading, content));
+                return {items: dropdowns, newIndex: i - 1};
+            }
+            if (currentLevel === level) {
+                dropdowns.push(createDropdown(heading, content));
+                heading = currentElement
+            }
+
+
         } else {
-            stack.length && content.push(element);
+            !!heading && content.push(currentElement);
         }
-        if (!element.nextSibling) {
-            createDropdown(stack.pop(), content);
+        if (i === elements.length - 1 && heading) {
+            dropdowns.push(createDropdown(heading, content));
         }
-    })
+    }
+    return dropdowns;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('.markdown-body');
-    const items = Array.from(body.childNodes);
+    let items = Array.from(body.childNodes)
     parseContent(items);
 })

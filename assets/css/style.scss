@@ -66,6 +66,7 @@ html, body {
 
 .ma-dropdown {
   &__trigger {
+    cursor: pointer;
     transition: color $duration $easing;
   }
   &__content {
