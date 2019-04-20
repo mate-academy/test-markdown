@@ -71,8 +71,9 @@ html, body {
   }
   &__content {
     display: none;
+    margin-left: 20px;
   }
-  &.is-active {
+  &.is-active > {
     .ma-dropdown__trigger {
       color: $c-accent;
     }
