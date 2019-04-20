@@ -19,7 +19,6 @@ const addEvents = (wrapper, trigger) => {
 }
 
 const createDropdown = (trigger, content) => {
-    console.log(trigger)
     const name = 'ma-dropdown';
 
     const wrapper = document.createElement('div');
@@ -80,6 +79,7 @@ const parseContent = (elements, level = 2, index = 0) => {
         }
         if (i === elements.length - 1 && heading) {
             dropdowns.push(createDropdown(heading, content));
+            return {items: dropdowns, newIndex: i - 1};
         }
     }
     return dropdowns;
