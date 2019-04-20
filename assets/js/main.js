@@ -10,12 +10,12 @@ const addEvents = (wrapper, trigger) => {
         }
         wrapper.classList.toggle('is-active');
     })
-    document.addEventListener('click', (e) => {
-        if (wrapper.contains(e.target)) {
-            return;
-        }
-        wrapper.classList.remove('is-active');
-    })
+    // document.addEventListener('click', (e) => {
+    //     if (wrapper.contains(e.target)) {
+    //         return;
+    //     }
+    //     wrapper.classList.remove('is-active');
+    // })
 }
 
 const createDropdown = (trigger, content) => {
